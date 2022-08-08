@@ -3,7 +3,6 @@
 namespace Charcoal\Cache;
 
 use InvalidArgumentException;
-
 // From 'charcoal-config'
 use Charcoal\Config\AbstractConfig;
 
@@ -12,21 +11,21 @@ use Charcoal\Config\AbstractConfig;
  */
 class CacheConfig extends AbstractConfig
 {
-    const DEFAULT_NAMESPACE = 'charcoal';
+    public const DEFAULT_NAMESPACE = 'charcoal';
 
     /**
      * Default cache type and fallback for user preference.
      */
-    const DEFAULT_TYPES = [
+    public const DEFAULT_TYPES = [
         'memory' => true
     ];
 
     /**
      * Human-readable intervals in seconds.
      */
-    const HOUR_IN_SECONDS = 3600;
-    const DAY_IN_SECONDS  = 86400;
-    const WEEK_IN_SECONDS = 604800;
+    public const HOUR_IN_SECONDS = 3600;
+    public const DAY_IN_SECONDS  = 86400;
+    public const WEEK_IN_SECONDS = 604800;
 
     /**
      * Whether to enable or disable the cache service.
@@ -159,7 +158,7 @@ class CacheConfig extends AbstractConfig
      */
     public function types()
     {
-        $types = $this->types + self::DEFAULT_TYPES;
+        $types = ($this->types + self::DEFAULT_TYPES);
         return array_keys($types);
     }
 
